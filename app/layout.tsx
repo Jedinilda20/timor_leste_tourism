@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
+import { ThemeProvider } from "@/components/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Discover Timor-Leste | Explore the Pearl of Southeast Asia",
-  description: "Explore the stunning beauty of Timor-Leste - pristine beaches, rich culture, historic sites, and breathtaking landscapes. Your ultimate guide to tourism in Timor-Leste.",
-  keywords: ["Timor-Leste", "tourism", "travel", "Southeast Asia", "beaches", "culture", "Dili"],
+  description:
+    "Explore the stunning beauty of Timor-Leste - pristine beaches, rich culture, historic sites, and breathtaking landscapes. Your ultimate guide to tourism in Timor-Leste.",
+  keywords: [
+    "Timor-Leste",
+    "tourism",
+    "travel",
+    "Southeast Asia",
+    "beaches",
+    "culture",
+    "Dili",
+  ],
 };
 
 export default function RootLayout({
@@ -25,11 +35,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-300`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

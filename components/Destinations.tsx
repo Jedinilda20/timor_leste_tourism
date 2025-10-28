@@ -14,7 +14,8 @@ const Destinations = () => {
     {
       name: 'Atauro Island',
       location: 'North of Dili',
-      description: 'World-class diving, pristine beaches, and the clearest waters in Southeast Asia.',
+      description:
+        'World-class diving, pristine beaches, and the clearest waters in Southeast Asia.',
       rating: 5,
       category: 'Beach & Diving',
       image: '/image/Atauro-Island.webp',
@@ -22,7 +23,8 @@ const Destinations = () => {
     {
       name: 'Cristo Rei Beach',
       location: 'Dili',
-      description: 'Iconic 27-meter statue overlooking stunning coastal views and golden sands.',
+      description:
+        'Iconic 27-meter statue overlooking stunning coastal views and golden sands.',
       rating: 5,
       category: 'Beach & Monument',
       image: '/image/Cristo-Rei-Beach.webp',
@@ -30,7 +32,8 @@ const Destinations = () => {
     {
       name: 'Jaco Island',
       location: 'Tutuala',
-      description: 'Uninhabited paradise island with crystal-clear waters and white sand beaches.',
+      description:
+        'Uninhabited paradise island with crystal-clear waters and white sand beaches.',
       rating: 5,
       category: 'Beach & Nature',
       image: '/image/Jaco-Island.webp',
@@ -38,7 +41,8 @@ const Destinations = () => {
     {
       name: 'Mount Ramelau',
       location: 'Ainaro',
-      description: 'The highest peak in Timor-Leste, offering breathtaking sunrise views.',
+      description:
+        'The highest peak in Timor-Leste, offering breathtaking sunrise views.',
       rating: 5,
       category: 'Mountain & Hiking',
       image: '/image/Mount-Ramelau.jpg',
@@ -46,7 +50,8 @@ const Destinations = () => {
     {
       name: 'Tais Market',
       location: 'Dili',
-      description: 'Vibrant traditional market showcasing colorful Timorese textiles and crafts.',
+      description:
+        'Vibrant traditional market showcasing colorful Timorese textiles and crafts.',
       rating: 4,
       category: 'Culture & Shopping',
       image: '/image/Tais-Market.jpg',
@@ -62,7 +67,11 @@ const Destinations = () => {
   ];
 
   return (
-    <section id="destinations" className="py-20 bg-white" ref={ref}>
+    <section
+      id="destinations"
+      className="py-20 bg-white dark:bg-[#0D1117] transition-colors duration-500"
+      ref={ref}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -71,11 +80,11 @@ const Destinations = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Popular <span className="text-[#DC241F]">Destinations</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#DC241F] to-[#FFC726] mx-auto mb-6" />
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Explore the most breathtaking locations across Timor-Leste
           </p>
         </motion.div>
@@ -89,7 +98,7 @@ const Destinations = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
+              className="group relative bg-white dark:bg-[#161B22] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer border border-gray-100 dark:border-gray-800"
             >
               {/* Destination Image */}
               <div className="relative h-64 overflow-hidden">
@@ -102,14 +111,18 @@ const Destinations = () => {
                 />
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full z-10">
-                  <span className="text-xs font-semibold text-gray-800">{destination.category}</span>
+                <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm px-3 py-1 rounded-full z-10">
+                  <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">
+                    {destination.category}
+                  </span>
                 </div>
 
                 {/* Rating */}
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center space-x-1 z-10">
+                <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center space-x-1 z-10">
                   <FiStar className="text-[#FFC726] text-sm fill-current" />
-                  <span className="text-sm font-bold text-gray-800">{destination.rating}</span>
+                  <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
+                    {destination.rating}
+                  </span>
                 </div>
 
                 {/* Overlay on Hover */}
@@ -117,7 +130,7 @@ const Destinations = () => {
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold"
+                    className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-6 py-2 rounded-full font-semibold"
                   >
                     View Details
                   </motion.button>
@@ -127,17 +140,17 @@ const Destinations = () => {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#DC241F] transition-colors">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-[#DC241F] transition-colors">
                     {destination.name}
                   </h3>
                 </div>
 
-                <div className="flex items-center text-gray-600 mb-3">
+                <div className="flex items-center text-gray-600 dark:text-gray-400 mb-3">
                   <FiMapPin className="text-[#DC241F] mr-2" />
                   <span className="text-sm">{destination.location}</span>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   {destination.description}
                 </p>
               </div>
