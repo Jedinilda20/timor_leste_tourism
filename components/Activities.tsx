@@ -13,6 +13,7 @@ import {
   FiDroplet,
   FiTriangle
 } from 'react-icons/fi';
+import Image from 'next/image';
 
 const Activities = () => {
   const ref = useRef(null);
@@ -23,57 +24,49 @@ const Activities = () => {
       icon: FiAnchor,
       title: 'Scuba Diving',
       description: 'Explore pristine coral reefs and diverse marine life in some of the world\'s clearest waters.',
-      image: 'diving',
-      gradient: 'from-blue-500 to-cyan-400',
+      image: '/image/Scuba-Diving.jpg',
     },
     {
       icon: FiTriangle,
       title: 'Mountain Trekking',
       description: 'Hike to Mount Ramelau peak and witness breathtaking sunrise views at 2,963 meters.',
-      image: 'trekking',
-      gradient: 'from-green-600 to-emerald-500',
+      image: '/image/Mountain-Trekking.jpg',
     },
     {
       icon: FiDroplet,
       title: 'Snorkeling',
       description: 'Discover colorful underwater worlds perfect for beginners and experienced snorkelers.',
-      image: 'snorkeling',
-      gradient: 'from-teal-500 to-blue-400',
+      image: '/image/Snorkeling.jpg',
     },
     {
       icon: FiCoffee,
       title: 'Coffee Tours',
       description: 'Visit organic coffee plantations and learn about Timor-Leste\'s world-renowned coffee.',
-      image: 'coffee',
-      gradient: 'from-amber-700 to-yellow-600',
+      image: '/image/Coffee-Tours.jpg',
     },
     {
       icon: FiCamera,
       title: 'Photography Tours',
       description: 'Capture stunning landscapes, vibrant culture, and unique architecture.',
-      image: 'photography',
-      gradient: 'from-purple-600 to-pink-500',
+      image: '/image/Photography-Tours.jpg',
     },
     {
       icon: FiSun,
       title: 'Beach Activities',
       description: 'Relax on pristine beaches, kayak in calm bays, or enjoy beach volleyball.',
-      image: 'beach',
-      gradient: 'from-[#FFC726] to-orange-400',
+      image: '/image/Beach-Activities.jpg',
     },
     {
       icon: FiWind,
       title: 'Cultural Tours',
       description: 'Visit sacred sites, traditional villages, and experience authentic Timorese culture.',
-      image: 'culture',
-      gradient: 'from-[#DC241F] to-red-600',
+      image: '/image/Cultural-Tours.avif',
     },
     {
       icon: FiTrendingUp,
       title: 'Adventure Sports',
       description: 'Rock climbing, canyoning, and exploring caves in Timor-Leste\'s rugged terrain.',
-      image: 'adventure',
-      gradient: 'from-gray-700 to-gray-900',
+      image: '/image/Adventure-Sports.jpg',
     },
   ];
 
@@ -107,36 +100,45 @@ const Activities = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
             >
-              {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${activity.gradient} opacity-90 group-hover:opacity-100 transition-opacity`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <activity.icon className="text-white text-6xl opacity-20 group-hover:scale-110 transition-transform" />
+              {/* Activity Image */}
+              <div className="relative h-[280px]">
+                <Image
+                  src={activity.image}
+                  alt={activity.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+
+                {/* Icon Badge */}
+                <div className="absolute top-4 left-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center z-10">
+                  <activity.icon className="text-white text-2xl" />
                 </div>
               </div>
 
               {/* Content */}
-              <div className="relative p-6 h-full flex flex-col justify-end min-h-[280px]">
-                <div className="mb-4">
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                    <activity.icon className="text-white text-2xl" />
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:translate-y-[-4px] transition-transform">
+              <div className="relative p-6 bg-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#DC241F] transition-colors">
                   {activity.title}
                 </h3>
-                <p className="text-white/90 text-sm leading-relaxed">
+                <p className="text-gray-700 text-sm leading-relaxed">
                   {activity.description}
                 </p>
 
                 {/* Hover Indicator */}
-                <div className="mt-4 flex items-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-4 flex items-center text-[#DC241F] opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-sm font-semibold">Learn More</span>
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
               </div>
+
+              {/* Bottom Accent */}
+              <div className="h-1 bg-gradient-to-r from-[#DC241F] to-[#FFC726]" />
             </motion.div>
           ))}
         </div>
