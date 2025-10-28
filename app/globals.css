@@ -1,26 +1,43 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Timor-Leste Flag Colors */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --timor-red: #DC241F;
+  --timor-yellow: #FFC726;
+  --timor-black: #000000;
+  --timor-white: #FFFFFF;
+  --timor-red-dark: #B51D19;
+  --timor-yellow-light: #FFD96A;
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--timor-red);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--timor-red-dark);
 }
