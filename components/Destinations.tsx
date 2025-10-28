@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FiMapPin, FiStar, FiCamera } from 'react-icons/fi';
+import { FiMapPin, FiStar } from 'react-icons/fi';
+import Image from 'next/image';
 
 const Destinations = () => {
   const ref = useRef(null);
@@ -16,7 +17,7 @@ const Destinations = () => {
       description: 'World-class diving, pristine beaches, and the clearest waters in Southeast Asia.',
       rating: 5,
       category: 'Beach & Diving',
-      gradient: 'from-blue-500 to-cyan-400',
+      image: '/image/Atauro-Island.webp',
     },
     {
       name: 'Cristo Rei Beach',
@@ -24,7 +25,7 @@ const Destinations = () => {
       description: 'Iconic 27-meter statue overlooking stunning coastal views and golden sands.',
       rating: 5,
       category: 'Beach & Monument',
-      gradient: 'from-[#DC241F] to-orange-500',
+      image: '/image/Cristo-Rei-Beach.webp',
     },
     {
       name: 'Jaco Island',
@@ -32,7 +33,7 @@ const Destinations = () => {
       description: 'Uninhabited paradise island with crystal-clear waters and white sand beaches.',
       rating: 5,
       category: 'Beach & Nature',
-      gradient: 'from-[#FFC726] to-yellow-500',
+      image: '/image/Jaco-Island.webp',
     },
     {
       name: 'Mount Ramelau',
@@ -40,7 +41,7 @@ const Destinations = () => {
       description: 'The highest peak in Timor-Leste, offering breathtaking sunrise views.',
       rating: 5,
       category: 'Mountain & Hiking',
-      gradient: 'from-green-600 to-emerald-500',
+      image: '/image/Mount-Ramelau.jpg',
     },
     {
       name: 'Tais Market',
@@ -48,7 +49,7 @@ const Destinations = () => {
       description: 'Vibrant traditional market showcasing colorful Timorese textiles and crafts.',
       rating: 4,
       category: 'Culture & Shopping',
-      gradient: 'from-purple-600 to-pink-500',
+      image: '/image/Tais-Market.jpg',
     },
     {
       name: 'Tibar Bay',
@@ -56,7 +57,7 @@ const Destinations = () => {
       description: 'Serene bay perfect for swimming, kayaking, and relaxation.',
       rating: 4,
       category: 'Beach & Recreation',
-      gradient: 'from-teal-500 to-cyan-500',
+      image: '/image/Tibar-Bay.jpg',
     },
   ];
 
@@ -90,25 +91,29 @@ const Destinations = () => {
               whileHover={{ y: -10 }}
               className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
             >
-              {/* Image Placeholder with Gradient */}
-              <div className={`relative h-64 bg-gradient-to-br ${destination.gradient} overflow-hidden`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <FiCamera className="text-white text-6xl opacity-30 group-hover:scale-110 transition-transform" />
-                </div>
+              {/* Destination Image */}
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src={destination.image}
+                  alt={destination.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full z-10">
                   <span className="text-xs font-semibold text-gray-800">{destination.category}</span>
                 </div>
 
                 {/* Rating */}
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center space-x-1">
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center space-x-1 z-10">
                   <FiStar className="text-[#FFC726] text-sm fill-current" />
                   <span className="text-sm font-bold text-gray-800">{destination.rating}</span>
                 </div>
 
                 {/* Overlay on Hover */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -138,7 +143,7 @@ const Destinations = () => {
               </div>
 
               {/* Bottom Accent */}
-              <div className={`h-1 bg-gradient-to-r ${destination.gradient}`} />
+              <div className="h-1 bg-gradient-to-r from-[#DC241F] to-[#FFC726]" />
             </motion.div>
           ))}
         </div>

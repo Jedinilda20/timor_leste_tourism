@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FiMusic, FiFeather, FiBook, FiUsers } from 'react-icons/fi';
+import Image from 'next/image';
 
 const Culture = () => {
   const ref = useRef(null);
@@ -100,28 +101,16 @@ const Culture = () => {
             className="relative"
           >
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-              {/* Tais Pattern-Inspired Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#DC241F] via-[#FFC726] to-black">
-                <div className="absolute inset-0 opacity-30">
-                  <div className="grid grid-cols-4 h-full">
-                    {[...Array(16)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="border border-white/20"
-                        style={{
-                          background: i % 2 === 0 ? '#DC241F' : i % 3 === 0 ? '#FFC726' : 'transparent',
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <FiFeather className="text-6xl mx-auto mb-4" />
-                    <p className="text-xl font-semibold">Traditional Tais Patterns</p>
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="/image/Traditional-Tais-Patterns.jpg"
+                alt="Traditional Tais Patterns"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+
+              {/* Overlay gradient for better contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
               {/* Decorative Corner */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFC726] opacity-50 blur-3xl" />

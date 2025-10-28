@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FiGlobe, FiUsers, FiMapPin, FiAward } from 'react-icons/fi';
+import Image from 'next/image';
 
 const About = () => {
   const ref = useRef(null);
@@ -102,15 +103,16 @@ const About = () => {
             className="relative"
           >
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-              {/* Placeholder for image - You can replace with actual image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#DC241F] via-[#FFC726] to-[#DC241F]">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <FiGlobe className="text-6xl mx-auto mb-4 opacity-50" />
-                    <p className="text-xl font-semibold opacity-75">Beautiful Timor-Leste Landscape</p>
-                  </div>
-                </div>
-              </div>
+              <Image
+                src="/image/Beautiful-Timor-Leste-Landscape.jpeg"
+                alt="Beautiful Timor-Leste Landscape"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+
+              {/* Overlay gradient for better text visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
               {/* Decorative Elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#FFC726] rounded-full opacity-50 blur-2xl" />
