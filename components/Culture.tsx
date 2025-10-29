@@ -14,25 +14,29 @@ const Culture = () => {
     {
       icon: FiMusic,
       title: 'Traditional Music',
-      description: 'Experience the rhythmic beats of Timorese drums and the melodious sounds of traditional instruments.',
+      description:
+        'Experience the rhythmic beats of Timorese drums and the melodious sounds of traditional instruments.',
       color: 'from-[#DC241F] to-red-600',
     },
     {
       icon: FiFeather,
       title: 'Tais Weaving',
-      description: 'Discover the intricate art of Tais, traditional hand-woven textiles that tell stories of Timorese heritage.',
+      description:
+        'Discover the intricate art of Tais, traditional hand-woven textiles that tell stories of Timorese heritage.',
       color: 'from-[#FFC726] to-yellow-600',
     },
     {
       icon: FiBook,
       title: 'Oral Traditions',
-      description: 'Listen to ancient stories and legends passed down through generations in local communities.',
+      description:
+        'Listen to ancient stories and legends passed down through generations in local communities.',
       color: 'from-purple-600 to-pink-600',
     },
     {
       icon: FiUsers,
       title: 'Sacred Houses',
-      description: 'Visit Uma Lulik, traditional sacred houses that serve as spiritual centers for Timorese families.',
+      description:
+        'Visit Uma Lulik, traditional sacred houses that serve as spiritual centers for Timorese families.',
       color: 'from-green-600 to-emerald-600',
     },
   ];
@@ -40,20 +44,27 @@ const Culture = () => {
   const traditions = [
     {
       name: 'Tebe-Tebe Dance',
-      description: 'Traditional circle dance performed during celebrations and ceremonies',
+      description:
+        'Traditional circle dance performed during celebrations and ceremonies',
     },
     {
       name: 'Coffee Ceremony',
-      description: 'Social ritual of preparing and sharing Timorese coffee with guests',
+      description:
+        'Social ritual of preparing and sharing Timorese coffee with guests',
     },
     {
       name: 'Betel Nut Offering',
-      description: 'Ancient custom of offering betel nut as a sign of respect and hospitality',
+      description:
+        'Ancient custom of offering betel nut as a sign of respect and hospitality',
     },
   ];
 
   return (
-    <section id="culture" className="py-20 bg-gradient-to-b from-white to-gray-50" ref={ref}>
+    <section
+      id="culture"
+      ref={ref}
+      className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-[#0B0B0E] dark:to-[#1A1A1D] transition-colors duration-500"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -62,11 +73,11 @@ const Culture = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Culture & <span className="text-[#DC241F]">Heritage</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#DC241F] to-[#FFC726] mx-auto mb-6" />
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Immerse yourself in the rich cultural tapestry of Timor-Leste
           </p>
         </motion.div>
@@ -80,13 +91,19 @@ const Culture = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+              className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:shadow-gray-800 transition-all border border-transparent dark:border-gray-800"
             >
-              <div className={`w-16 h-16 bg-gradient-to-br ${element.color} rounded-xl flex items-center justify-center mb-4`}>
+              <div
+                className={`w-16 h-16 bg-gradient-to-br ${element.color} rounded-xl flex items-center justify-center mb-4`}
+              >
                 <element.icon className="text-white text-3xl" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{element.title}</h3>
-              <p className="text-gray-700 leading-relaxed">{element.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                {element.title}
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {element.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -100,7 +117,7 @@ const Culture = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl dark:shadow-gray-800">
               <Image
                 src="/image/Traditional-Tais-Patterns.jpg"
                 alt="Traditional Tais Patterns"
@@ -112,7 +129,7 @@ const Culture = () => {
               {/* Overlay gradient for better contrast */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
-              {/* Decorative Corner */}
+              {/* Decorative Corners */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFC726] opacity-50 blur-3xl" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#DC241F] opacity-50 blur-3xl" />
             </div>
@@ -124,13 +141,14 @@ const Culture = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
               Living Traditions
             </h3>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Timor-Leste's culture is a beautiful blend of indigenous Melanesian traditions,
-              Portuguese colonial influences, and Southeast Asian customs. The Timorese people
-              have preserved their ancestral traditions while embracing modernity.
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+              Timor-Leste's culture is a beautiful blend of indigenous Melanesian
+              traditions, Portuguese colonial influences, and Southeast Asian customs.
+              The Timorese people have preserved their ancestral traditions while
+              embracing modernity.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -140,12 +158,16 @@ const Culture = () => {
                   initial={{ opacity: 0, x: 30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow"
+                  className="flex items-start space-x-4 p-4 bg-white dark:bg-gray-900 rounded-lg shadow hover:shadow-md dark:hover:shadow-gray-800 transition-shadow border border-transparent dark:border-gray-800"
                 >
                   <div className="w-2 h-2 bg-[#DC241F] rounded-full mt-2" />
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-1">{tradition.name}</h4>
-                    <p className="text-sm text-gray-600">{tradition.description}</p>
+                    <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                      {tradition.name}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      {tradition.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
