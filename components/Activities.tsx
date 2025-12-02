@@ -71,7 +71,7 @@ const Activities = () => {
   ];
 
   return (
-    <section id="activities" className="py-20 bg-white" ref={ref}>
+    <section id="activities" className="py-20 bg-white dark:bg-gray-900 transition-colors" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -80,11 +80,11 @@ const Activities = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Activities & <span className="text-[#DC241F]">Adventures</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#DC241F] to-[#FFC726] mx-auto mb-6" />
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             From underwater exploration to mountain peaks - endless adventures await
           </p>
         </motion.div>
@@ -98,37 +98,31 @@ const Activities = () => {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
+              className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer"
             >
-              {/* Activity Image */}
+              {/* Image */}
               <div className="relative h-[280px]">
                 <Image
                   src={activity.image}
                   alt={activity.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
-
-                {/* Dark overlay for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-
-                {/* Icon Badge */}
                 <div className="absolute top-4 left-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center z-10">
                   <activity.icon className="text-white text-2xl" />
                 </div>
               </div>
 
               {/* Content */}
-              <div className="relative p-6 bg-white">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#DC241F] transition-colors">
+              <div className="relative p-6">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-[#DC241F] transition-colors">
                   {activity.title}
                 </h3>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                   {activity.description}
                 </p>
 
-                {/* Hover Indicator */}
                 <div className="mt-4 flex items-center text-[#DC241F] opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-sm font-semibold">Learn More</span>
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,13 +131,12 @@ const Activities = () => {
                 </div>
               </div>
 
-              {/* Bottom Accent */}
               <div className="h-1 bg-gradient-to-r from-[#DC241F] to-[#FFC726]" />
             </motion.div>
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

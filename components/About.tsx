@@ -18,7 +18,10 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50" ref={ref}>
+    <section
+      className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-[#0d0d0d] dark:to-[#1a1a1a] transition-colors duration-500"
+      ref={ref}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -27,11 +30,11 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            About <span className="text-[#DC241F]">Timor-Leste</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            About <span className="text-[#DC241F] dark:text-[#FFC726]">Timor-Leste</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#DC241F] to-[#FFC726] mx-auto mb-6" />
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Southeast Asia's youngest nation, a land of extraordinary beauty and rich cultural heritage
           </p>
         </motion.div>
@@ -45,13 +48,13 @@ const About = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+              className="bg-white dark:bg-[#111] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
             >
               <div className={`w-14 h-14 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center mb-4`}>
                 <stat.icon className="text-white text-2xl" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</h3>
-              <p className="text-gray-600 font-medium">{stat.label}</p>
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">{stat.value}</h3>
+              <p className="text-gray-600 dark:text-gray-400 font-medium">{stat.label}</p>
             </motion.div>
           ))}
         </div>
@@ -64,10 +67,10 @@ const About = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
               The Pearl of Southeast Asia
             </h3>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
               <p>
                 Timor-Leste, also known as East Timor, is a captivating nation located in Southeast Asia,
                 occupying the eastern half of Timor Island. This young nation, which gained independence
@@ -110,16 +113,11 @@ const About = () => {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-
-              {/* Overlay gradient for better text visibility */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-
-              {/* Decorative Elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#FFC726] rounded-full opacity-50 blur-2xl" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[#DC241F] rounded-full opacity-50 blur-2xl" />
             </div>
 
-            {/* Flag Colors Accent */}
             <div className="absolute -bottom-6 -right-6 flex space-x-2">
               <div className="w-16 h-16 bg-[#DC241F] rounded-lg shadow-lg" />
               <div className="w-16 h-16 bg-[#FFC726] rounded-lg shadow-lg" />

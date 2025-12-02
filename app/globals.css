@@ -41,3 +41,52 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--timor-red-dark);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-gray-900 transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* app/globals.css (add this) */
+
+:root {
+  /* optional default variables */
+}
+
+/* Light mode base */
+html, body {
+  @apply bg-white text-gray-900;
+}
+
+/* When 'dark' class is present on html (Tailwind darkMode: 'class') */
+html.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* Optional: smooth transition for color changes */
+body {
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+html,
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  background-color: white;
+  color: #1a1a1a;
+}
+
+/* Dark mode */
+body.dark {
+  background-color: #0a0a0a;
+  color: #e5e5e5;
+}
