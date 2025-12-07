@@ -303,9 +303,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Icons from [React Icons](https://react-icons.github.io/react-icons/)
 - Built with [Next.js](https://nextjs.org/)
 
-## 📞 Support
-
-For support, email info@timor-leste-tourism.com or open an issue in the GitHub repository.
 
 ## 🔗 Links
 
